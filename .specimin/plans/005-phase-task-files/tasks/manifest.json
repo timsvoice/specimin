@@ -1,0 +1,122 @@
+[
+  {
+    "id": "T001",
+    "description": "Add Stage 7 section \"Generate Phase Files and Manifest\" after Stage 6 in .claude-plugin/commands/cmd.implement.md (AC1)",
+    "phase": 1,
+    "status": "pending"
+  },
+  {
+    "id": "T002",
+    "description": "Add instruction to create `.specimin/plans/{branch}/tasks/` directory using Bash mkdir command in .claude-plugin/commands/cmd.implement.md (AC1)",
+    "phase": 1,
+    "status": "pending"
+  },
+  {
+    "id": "T003",
+    "description": "Add prompt instruction to read implementation.md and identify phase boundaries (headers like `## Phase N:`) in .claude-plugin/commands/cmd.implement.md (AC2)",
+    "phase": 2,
+    "status": "pending"
+  },
+  {
+    "id": "T004",
+    "description": "Add prompt instruction to extract task data (task ID, description, phase number) from checkbox lines in .claude-plugin/commands/cmd.implement.md (AC2, AC3)",
+    "phase": 2,
+    "status": "pending"
+  },
+  {
+    "id": "T005",
+    "description": "Add prompt instruction to store extracted data in structured format (phase → tasks mapping) in .claude-plugin/commands/cmd.implement.md (AC2)",
+    "phase": 2,
+    "status": "pending"
+  },
+  {
+    "id": "T006",
+    "description": "Add prompt instruction to create phase_N.md files using Write tool with numeric naming in .claude-plugin/commands/cmd.implement.md (AC1, AC2)",
+    "phase": 3,
+    "status": "pending"
+  },
+  {
+    "id": "T007",
+    "description": "Add prompt instruction to include phase header (name from implementation.md) in each phase file in .claude-plugin/commands/cmd.implement.md (AC2)",
+    "phase": 3,
+    "status": "pending"
+  },
+  {
+    "id": "T008",
+    "description": "Add prompt instruction to copy phase metadata (dependencies, parallel opportunities) into phase files in .claude-plugin/commands/cmd.implement.md (AC2)",
+    "phase": 3,
+    "status": "pending"
+  },
+  {
+    "id": "T009",
+    "description": "Add prompt instruction to write filtered task list (preserving original task IDs) to each phase file in .claude-plugin/commands/cmd.implement.md (AC2)",
+    "phase": 3,
+    "status": "pending"
+  },
+  {
+    "id": "T010",
+    "description": "[P] Add prompt instruction to construct JSON array of task objects with schema: {id, description, phase, status} in .claude-plugin/commands/cmd.implement.md (AC3)",
+    "phase": 4,
+    "status": "pending"
+  },
+  {
+    "id": "T011",
+    "description": "[P] Add prompt instruction with JSON escaping examples (quotes, backslashes, newlines) in .claude-plugin/commands/cmd.implement.md (AC3, EC3)",
+    "phase": 4,
+    "status": "pending"
+  },
+  {
+    "id": "T012",
+    "description": "[P] Add prompt instruction to initialize all task status fields to \"pending\" in .claude-plugin/commands/cmd.implement.md (AC3)",
+    "phase": 4,
+    "status": "pending"
+  },
+  {
+    "id": "T013",
+    "description": "[P] Add prompt instruction to write manifest.json using Write tool to tasks directory in .claude-plugin/commands/cmd.implement.md (AC3)",
+    "phase": 4,
+    "status": "pending"
+  },
+  {
+    "id": "T014",
+    "description": "[P] Add conditional logic to handle single-phase implementations (still create phase_1.md) in .claude-plugin/commands/cmd.implement.md (EC1)",
+    "phase": 5,
+    "status": "pending"
+  },
+  {
+    "id": "T015",
+    "description": "[P] Add logic to skip file creation for empty phases but note in manifest in .claude-plugin/commands/cmd.implement.md (EC2)",
+    "phase": 5,
+    "status": "pending"
+  },
+  {
+    "id": "T016",
+    "description": "[P] Add validation step to count detected phases and show error if 0 phases found in .claude-plugin/commands/cmd.implement.md (Risk1)",
+    "phase": 5,
+    "status": "pending"
+  },
+  {
+    "id": "T017",
+    "description": "Update Stage 6 \"Save Approved Tasks\" to trigger Stage 7 after writing implementation.md in .claude-plugin/commands/cmd.implement.md (AC1)",
+    "phase": 6,
+    "status": "pending"
+  },
+  {
+    "id": "T018",
+    "description": "Add confirmation message showing \"Generated N phase files and manifest with M tasks\" in .claude-plugin/commands/cmd.implement.md (AC1)",
+    "phase": 6,
+    "status": "pending"
+  },
+  {
+    "id": "T019",
+    "description": "Manual test: Run /implement on this feature (005-phase-task-files) to verify phase files and manifest are generated correctly (Integration test)",
+    "phase": 6,
+    "status": "pending"
+  },
+  {
+    "id": "T020",
+    "description": "Manual verification: Check that tasks/ directory exists with phase_1.md through phase_6.md and manifest.json (Integration test)",
+    "phase": 6,
+    "status": "pending"
+  }
+]

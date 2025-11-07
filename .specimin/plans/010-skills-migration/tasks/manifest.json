@@ -1,0 +1,128 @@
+[
+  {
+    "id": "T001",
+    "description": "Create skills directory structure at .claude-plugin/skills/ (R01)",
+    "phase": 1,
+    "status": "pending"
+  },
+  {
+    "id": "T002",
+    "description": "[P] Audit tool requirements from cmd.spec.md and document needed tools (R02)",
+    "phase": 1,
+    "status": "pending"
+  },
+  {
+    "id": "T003",
+    "description": "[P] Audit tool requirements from cmd.plan.md and document needed tools (R02)",
+    "phase": 1,
+    "status": "pending"
+  },
+  {
+    "id": "T004",
+    "description": "[P] Audit tool requirements from cmd.task.md and document needed tools (R02)",
+    "phase": 1,
+    "status": "pending"
+  },
+  {
+    "id": "T005",
+    "description": "[P] Audit tool requirements from cmd.wrap.md and document needed tools (R02)",
+    "phase": 1,
+    "status": "pending"
+  },
+  {
+    "id": "T006",
+    "description": "Document SKILL.md structure with YAML frontmatter requirements in temporary reference file (R01, R03)",
+    "phase": 1,
+    "status": "pending"
+  },
+  {
+    "id": "T007",
+    "description": "[P] Create .claude-plugin/skills/specimin-spec/ directory (R01)",
+    "phase": 2,
+    "status": "pending"
+  },
+  {
+    "id": "T008",
+    "description": "[P] Create .claude-plugin/skills/specimin-spec/scripts/ directory and copy save-spec.sh and setup.feature.sh from .specimin/ (R06)",
+    "phase": 2,
+    "status": "pending"
+  },
+  {
+    "id": "T009",
+    "description": "[P] Create .claude-plugin/skills/specimin-spec/SKILL.md with content from cmd.spec.md, add frontmatter with name, description, allowed-tools, and update script references to scripts/ (R01, R02, R03, R06)",
+    "phase": 2,
+    "status": "pending"
+  },
+  {
+    "id": "T010",
+    "description": "[P] Create .claude-plugin/skills/specimin-plan/ directory (R01)",
+    "phase": 2,
+    "status": "pending"
+  },
+  {
+    "id": "T011",
+    "description": "[P] Create .claude-plugin/skills/specimin-plan/scripts/ directory and copy save-plan.sh from .specimin/ (R06)",
+    "phase": 2,
+    "status": "pending"
+  },
+  {
+    "id": "T012",
+    "description": "[P] Create .claude-plugin/skills/specimin-plan/SKILL.md with content from cmd.plan.md, add frontmatter with name, description, allowed-tools, and update script references to scripts/ (R01, R02, R03, R06)",
+    "phase": 2,
+    "status": "pending"
+  },
+  {
+    "id": "T013",
+    "description": "[P] Create .claude-plugin/skills/specimin-task/ directory (R01)",
+    "phase": 2,
+    "status": "pending"
+  },
+  {
+    "id": "T014",
+    "description": "[P] Create .claude-plugin/skills/specimin-task/SKILL.md with content from cmd.task.md, add frontmatter with name, description, and allowed-tools (R01, R02, R03)",
+    "phase": 2,
+    "status": "pending"
+  },
+  {
+    "id": "T015",
+    "description": "[P] Create .claude-plugin/skills/specimin-wrap/ directory (R01)",
+    "phase": 2,
+    "status": "pending"
+  },
+  {
+    "id": "T016",
+    "description": "[P] Create .claude-plugin/skills/specimin-wrap/SKILL.md with content from cmd.wrap.md, add frontmatter with name, description, and allowed-tools (R01, R02, R03)",
+    "phase": 2,
+    "status": "pending"
+  },
+  {
+    "id": "T017",
+    "description": "Update .claude-plugin/plugin.json to add \"skills\" array with paths to four skill directories (R01)",
+    "phase": 3,
+    "status": "pending"
+  },
+  {
+    "id": "T018",
+    "description": "Rename .claude-plugin/commands/cmd.spec.md to cmd.spec.md.deprecated (R04)",
+    "phase": 3,
+    "status": "pending"
+  },
+  {
+    "id": "T019",
+    "description": "Rename .claude-plugin/commands/cmd.plan.md to cmd.plan.md.deprecated (R04)",
+    "phase": 3,
+    "status": "pending"
+  },
+  {
+    "id": "T020",
+    "description": "Rename .claude-plugin/commands/cmd.task.md to cmd.task.md.deprecated (R04)",
+    "phase": 3,
+    "status": "pending"
+  },
+  {
+    "id": "T021",
+    "description": "Rename .claude-plugin/commands/cmd.wrap.md to cmd.wrap.md.deprecated (R04)",
+    "phase": 3,
+    "status": "pending"
+  }
+]

@@ -1,0 +1,41 @@
+# OS files
+.DS_Store
+*.swp
+*~
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# Temporary files
+*.tmp
+/tmp/
+*.log
+
+# Environment/secrets
+.env
+.env.*
+*.pem
+*.key
+credentials.json
+secrets.json
+
+# Local testing and scratch work
+.specimin/test/
+.specimin/scratch/
+.specimin/local/
+
+# Python (if adding tests/scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+venv/
+env/
+
+# Node (if adding tooling)
+node_modules/
+npm-debug.log
+yarn-error.log

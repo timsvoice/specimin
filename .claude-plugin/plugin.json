@@ -1,0 +1,17 @@
+{
+  "name": "specimin",
+  "version": "1.1.0",
+  "description": "Feature specification, planning, implementation, review, and refactoring workflow for software projects",
+  "author": "Timothy Voice",
+  "commands": [
+    "commands/init.md"
+  ],
+  "skills": [
+    "skills/specimin-spec",
+    "skills/specimin-plan",
+    "skills/specimin-task",
+    "skills/specimin-wrap",
+    "skills/specimin-review",
+    "skills/specimin-refactor"
+  ]
+}

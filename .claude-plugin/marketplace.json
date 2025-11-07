@@ -1,0 +1,13 @@
+{
+    "name": "timsvoice",
+    "owner": {
+        "name": "Timothy Voice"
+    },
+    "plugins": [
+        {
+            "name": "specimin",
+            "source": "./.claude-plugin",
+            "description": "Feature specification, planning, implementation, review, and refactoring workflow for software projects"
+        }
+    ]
+}

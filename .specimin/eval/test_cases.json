@@ -1,0 +1,21 @@
+{
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "tc001",
+      "name": "LRU Cache",
+      "feature_description": "Create an LRU (Least Recently Used) cache data structure that supports get and put operations. The cache should have a configurable maximum capacity. When the capacity is exceeded, the least recently used item should be evicted. Both get and put operations should run in O(1) time complexity.",
+      "expected_functions": ["LRUCache", "get", "put"],
+      "test_code": "import pytest\n\ndef test_lru_cache_basic_operations(implementation):\n    \"\"\"Test basic get and put operations\"\"\"\n    cache = implementation.LRUCache(capacity=2)\n    \n    cache.put(1, 'one')\n    cache.put(2, 'two')\n    \n    assert cache.get(1) == 'one'\n    assert cache.get(2) == 'two'\n    assert cache.get(3) is None or cache.get(3) == -1\n\ndef test_lru_cache_eviction(implementation):\n    \"\"\"Test that LRU eviction works correctly\"\"\"\n    cache = implementation.LRUCache(capacity=2)\n    \n    cache.put(1, 'one')\n    cache.put(2, 'two')\n    cache.put(3, 'three')  # Should evict key 1\n    \n    assert cache.get(1) is None or cache.get(1) == -1\n    assert cache.get(2) == 'two'\n    assert cache.get(3) == 'three'\n\ndef test_lru_cache_access_updates_recency(implementation):\n    \"\"\"Test that accessing an item updates its recency\"\"\"\n    cache = implementation.LRUCache(capacity=2)\n    \n    cache.put(1, 'one')\n    cache.put(2, 'two')\n    cache.get(1)  # Access key 1, making it recently used\n    cache.put(3, 'three')  # Should evict key 2, not key 1\n    \n    assert cache.get(1) == 'one'\n    assert cache.get(2) is None or cache.get(2) == -1\n    assert cache.get(3) == 'three'\n",
+      "notes": "Tests allow for either None or -1 as missing value returns for flexibility"
+    },
+    {
+      "id": "tc005",
+      "name": "Simple Expression Parser",
+      "feature_description": "Create a simple mathematical expression parser and evaluator that can handle basic arithmetic operations (+, -, *, /) with integers. The parser should respect operator precedence (multiplication and division before addition and subtraction) and handle parentheses for grouping. Return the numeric result of evaluating the expression.",
+      "expected_functions": ["ExpressionParser", "evaluate"],
+      "test_code": "import pytest\n\ndef test_parser_basic_operations(implementation):\n    \"\"\"Test basic arithmetic operations\"\"\"\n    parser = implementation.ExpressionParser()\n    \n    assert parser.evaluate('2 + 3') == 5\n    assert parser.evaluate('10 - 4') == 6\n    assert parser.evaluate('5 * 3') == 15\n    assert parser.evaluate('20 / 4') == 5\n\ndef test_parser_operator_precedence(implementation):\n    \"\"\"Test that operator precedence is respected\"\"\"\n    parser = implementation.ExpressionParser()\n    \n    assert parser.evaluate('2 + 3 * 4') == 14  # Not 20\n    assert parser.evaluate('10 - 2 * 3') == 4   # Not 24\n    assert parser.evaluate('6 / 2 + 1') == 4    # Not 2\n\ndef test_parser_parentheses(implementation):\n    \"\"\"Test that parentheses override precedence\"\"\"\n    parser = implementation.ExpressionParser()\n    \n    assert parser.evaluate('(2 + 3) * 4') == 20\n    assert parser.evaluate('(10 - 2) * 3') == 24\n    assert parser.evaluate('6 / (2 + 1)') == 2\n\ndef test_parser_complex_expressions(implementation):\n    \"\"\"Test more complex nested expressions\"\"\"\n    parser = implementation.ExpressionParser()\n    \n    assert parser.evaluate('2 + 3 * (4 - 1)') == 11\n    assert parser.evaluate('(5 + 3) * 2 - 4') == 12\n",
+      "notes": "Tests basic parsing with standard operator precedence and parentheses"
+    }
+  ]
+}
