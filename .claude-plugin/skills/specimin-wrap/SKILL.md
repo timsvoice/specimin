@@ -45,7 +45,39 @@ Prepare completed work for code review: squash commits, generate PR description,
 
 **Checkpoint**: Verify environment valid (no uncommitted changes, on feature branch, has commits to squash) before proceeding.
 
-# Stage 2: Review Changes
+# Stage 2: Run Tests
+
+**Actions**:
+1. Detect test framework and run appropriate test command:
+   - Python: `python3 -m pytest` or `pytest`
+   - JavaScript/TypeScript: `npm test` or `yarn test`
+   - Ruby: `bundle exec rspec` or `rake test`
+   - Go: `go test ./...`
+   - Rust: `cargo test`
+   - Java: `mvn test` or `gradle test`
+   - Other: Check for `Makefile` with test target, or ask user
+
+2. Run tests and capture output
+
+3. **Error Handling**:
+   - Tests fail: Display failure summary and exit with message:
+     ```
+     ✗ Tests failed. Fix failing tests before wrapping up.
+
+     {test failure summary}
+
+     Run tests again after fixes and retry wrap.
+     ```
+   - Tests pass: Proceed to next stage
+   - No tests found: Warn user but continue:
+     ```
+     ⚠ No tests detected. Consider adding tests before creating PR.
+     Proceed anyway? (yes/no)
+     ```
+
+**Checkpoint**: Verify all tests pass before proceeding to review changes.
+
+# Stage 3: Review Changes
 
 Show user what will be squashed:
 
@@ -78,7 +110,7 @@ Proceed with squash and PR creation? (yes/no)
 
 Wait for confirmation. If "no", exit gracefully.
 
-# Stage 3: Squash Commits
+# Stage 4: Squash Commits
 
 Once confirmed:
 
@@ -104,7 +136,7 @@ Once confirmed:
 
 **Checkpoint**: Verify squash succeeded (single commit, correct message) before creating PR.
 
-# Stage 4: Create Pull Request
+# Stage 5: Create Pull Request
 
 1. **Generate PR title**:
    - Use commit message or feature name from spec
