@@ -7,7 +7,7 @@
         {
             "name": "specimin",
             "source": "./.claude-plugin",
-            "description": "Feature specification, planning, implementation, review, and refactoring workflow for software projects"
+            "description": "Feature specification, planning, implementation, review, and refactoring workflow for full-stack and UI projects"
         }
     ]
 }

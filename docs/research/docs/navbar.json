@@ -1,0 +1,49 @@
+{
+  "navbar": {
+    "description": "Responsive navigation with logo, links, and hamburger menu",
+    "patterns": {
+      "container": "max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4",
+      "logo_link": "flex items-center space-x-3 rtl:space-x-reverse",
+      "brand_text": "self-center text-2xl font-semibold whitespace-nowrap dark:text-white",
+      "hamburger_button": "inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600",
+      "nav_menu": "flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700",
+      "active_link": "block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500",
+      "nav_link": "block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent",
+      "dropdown_menu": "z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600",
+      "dropdown_item": "block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white",
+      "cta_button": "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+    },
+    "structure": {
+      "base": "nav > div.{container} > (a.{logo_link} > (img + span.{brand_text}) + button.{hamburger_button} + div.{nav_menu})",
+      "menu": "ul.{nav_menu} > li > a.{active_link | nav_link}",
+      "with_cta": "nav > div.{container} > (a.{logo_link} + div > (button.{cta_button} + button.{hamburger_button}) + div.{nav_menu})",
+      "with_dropdown": "li > (button[data-dropdown-toggle] + div.{dropdown_menu} > ul > li > a.{dropdown_item})",
+      "with_user_menu": "button[data-dropdown-toggle][data-dropdown-placement] > img + div.{dropdown_menu} > (div + ul > li > a.{dropdown_item})",
+      "sticky": "nav.fixed.w-full.z-20.top-0.border-b > div.{container}",
+      "mega_menu": "nav > div.{container} + div.border-y > div.grid > ul > li > a"
+    },
+    "interactive": {
+      "hamburger_toggle": "data-collapse-toggle=\"menu-id\" on hamburger_button, id=\"menu-id\" on nav_menu wrapper",
+      "dropdown": "data-dropdown-toggle=\"dropdown-id\" on button trigger, id=\"dropdown-id\" on dropdown_menu",
+      "user_dropdown": "data-dropdown-toggle=\"user-dropdown\" and data-dropdown-placement=\"bottom\" on user button"
+    },
+    "composition_rules": [
+      "container wraps all navbar content with max-width and flex layout",
+      "hamburger_button uses md:hidden, only visible on mobile",
+      "nav_menu hidden by default, toggled via data-collapse-toggle attribute",
+      "Use active_link for current page, nav_link for other pages",
+      "For sticky behavior add: fixed w-full z-20 top-0 border-b to nav",
+      "Dropdown requires data-dropdown-toggle on button and matching id on menu"
+    ],
+    "features": [
+      "responsive",
+      "dark_mode",
+      "hamburger_menu",
+      "dropdown_support",
+      "sticky_option",
+      "cta_button_support",
+      "user_menu_support",
+      "mega_menu_support"
+    ]
+  }
+}

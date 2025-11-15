@@ -1,7 +1,7 @@
 {
   "name": "specimin",
-  "version": "1.1.0",
-  "description": "Feature specification, planning, implementation, review, and refactoring workflow for software projects",
+  "version": "1.3.0",
+  "description": "Feature specification, planning, implementation, review, and refactoring workflow. Includes streamlined UI development flow with tiered complexity approach (92% less documentation for simple changes).",
   "author": "Timothy Voice",
   "commands": [
     "commands/init.md"
@@ -12,6 +12,8 @@
     "skills/specimin-task",
     "skills/specimin-wrap",
     "skills/specimin-review",
-    "skills/specimin-refactor"
+    "skills/specimin-refactor",
+    "skills/specimin-ui-generate",
+    "skills/specimin-ui-accessibility"
   ]
 }
