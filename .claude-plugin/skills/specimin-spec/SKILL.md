@@ -8,7 +8,11 @@ allowed-tools:
 ---
 
 **ALWAYS WAIT for user input before generating spec.**
-Ask the user for a brief description of the spec they want to create BEFORE generating the spec.
+Ask the user for:
+1. A brief description of the spec they want to create
+2. (Optional) A GitHub issue link associated with this feature
+
+BEFORE generating the spec.
 
 # Interactive Specification Generator
 
@@ -18,7 +22,11 @@ Senior product requirements analyst translating feature requests into clear, act
 ## Process Flow
 
 ### Stage 0: Branch Name (FIRST)
-Generate a **2-3 word, kebab-case branch name** from the user's requirement:
+If the user provided a **GitHub issue link**, extract the issue number from it:
+- Parse URLs like: `https://github.com/owner/repo/issues/123` → Extract `123`
+- Store as `$ISSUE_NUMBER` for Stage 4
+
+Otherwise, generate a **2-3 word, kebab-case branch name** from the user's requirement:
 - **Good**: `user-auth`, `pdf-export`, `real-time-sync`
 - **Bad**: `authentication-system-with-jwt`, `feature`, `new-feature`
 
@@ -55,9 +63,14 @@ Refine until approved.
 1. Write approved spec to temporary file `/tmp/spec-draft.md`
 
 2. Execute save script:
-```bash
-bash ${CLAUDE_PLUGIN_ROOT}/.claude-plugin/skills/specimin-spec/scripts/save-spec.sh "$USER_REQUIREMENT" "$BRANCH_NAME" /tmp/spec-draft.md
-```
+   - **If GitHub issue link was provided:**
+     ```bash
+     bash ${CLAUDE_PLUGIN_ROOT}/.claude-plugin/skills/specimin-spec/scripts/save-spec.sh "$USER_REQUIREMENT" "$BRANCH_NAME" /tmp/spec-draft.md "$ISSUE_NUMBER"
+     ```
+   - **Otherwise:**
+     ```bash
+     bash ${CLAUDE_PLUGIN_ROOT}/.claude-plugin/skills/specimin-spec/scripts/save-spec.sh "$USER_REQUIREMENT" "$BRANCH_NAME" /tmp/spec-draft.md
+     ```
 
 3. Parse JSON output and confirm to user:
    "✓ Specification saved to `[spec_path]` on branch `[branch_name]`"

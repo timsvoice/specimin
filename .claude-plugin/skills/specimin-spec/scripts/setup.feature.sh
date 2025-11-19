@@ -3,7 +3,7 @@ set -euo pipefail
 
 # Script: setup.feature.sh
 # Description: Create feature branch and planning directory
-# Usage: ./setup.feature.sh "feature description" [--json] [--no-commit] [--branch-name "custom-name"]
+# Usage: ./setup.feature.sh "feature description" [--json] [--no-commit] [--branch-name "custom-name"] [--issue-number "123"]
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -73,6 +73,7 @@ main() {
     local json_output=false
     local no_commit=false
     local custom_branch_name=""
+    local issue_number=""
 
     # Parse flags
     local i=2
@@ -84,13 +85,17 @@ main() {
                 ((i++))
                 custom_branch_name="${!i}"
                 ;;
+            --issue-number)
+                ((i++))
+                issue_number="${!i}"
+                ;;
         esac
         ((i++))
     done
 
     if [[ -z "$feature_description" ]]; then
         print_error "Feature description required"
-        echo "Usage: $0 \"feature description\" [--json] [--no-commit] [--branch-name \"custom-name\"]"
+        echo "Usage: $0 \"feature description\" [--json] [--no-commit] [--branch-name \"custom-name\"] [--issue-number \"123\"]"
         exit 1
     fi
     
@@ -98,13 +103,30 @@ main() {
     check_working_tree
 
     local branch_name
+    local branch_num
+
+    # Determine branch number
+    if [[ -n "$issue_number" ]]; then
+        # Use issue number (padded to 3 digits)
+        branch_num=$(printf "%03d" "$issue_number")
+    else
+        # Auto-increment (backward compatible)
+        branch_num=$(get_next_branch_number)
+    fi
+
     if [[ -n "$custom_branch_name" ]]; then
-        # Use custom branch name with auto-increment number
-        local branch_num=$(get_next_branch_number)
+        # Use custom branch name with branch number
         branch_name="${branch_num}-${custom_branch_name}"
     else
         # Generate from description (backward compatible)
-        branch_name=$(generate_branch_name "$feature_description")
+        # Extract first two words and clean them
+        local two_words=$(echo "$feature_description" | \
+            tr '[:upper:]' '[:lower:]' | \
+            sed 's/[^a-z0-9 -]//g' | \
+            tr -s ' ' | \
+            awk '{print $1"-"$2}' | \
+            sed 's/^-//;s/-$//')
+        branch_name="${branch_num}-${two_words}"
     fi
 
     check_branch_exists "$branch_name"
